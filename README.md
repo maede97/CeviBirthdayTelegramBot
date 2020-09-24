@@ -1,5 +1,5 @@
 # CeviBirthdayTelegramBot
-Sends a message to users with birthdays on that day.
+Sends a message to users with all Cevi leaders with a birthday on that (or the next) day.
 
 ## Installation
 Create a telegram bot and get the token, login to the CeviDB and get your user_token. Store all this information inside a file named `config.ini` (copy the template!).
