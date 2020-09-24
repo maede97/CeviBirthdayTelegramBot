@@ -62,9 +62,9 @@ def extract_birthdays(json):
             json = r.json()
             birthday = json['people'][0]['birthday']
             age = datetime.date.today().year - int(birthday[:4])
-            if birthday == today:
+            if birthday[5:] == today[5:]:
                 birthday_today.append('{} {}, {}'.format(prename, lastname, age))
-            elif birthday == tomorrow:
+            elif birthday[5:] == tomorrow[5:]:
                 birthday_tomorrow.append('{} {}, {}'.format(prename, lastname, age))
     
     #Build message and send it
@@ -76,6 +76,7 @@ def extract_birthdays(json):
         message += "*Tomorrow*\n"
         message += "\n * ".join(birthday_tomorrow)
     if len(message) > 0:
+        logging.info(message)
         send_message_to_all_users(message)
 
 def getAllBirthdays():
